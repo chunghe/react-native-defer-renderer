@@ -1,6 +1,16 @@
 
 ## react-native-defer-renderer
 
+This library helps implement lazy rendering for react-native.
+
+## install
+`npm install react-native-defer-renderer --save`
+
+## usage
+
+Let's take news article page for example - a long `<Article />` component with `<Comment />` component at the bottom. It's efficient only to render `<Comment />` component if the user scroll close to the `<Comment />` component
+
+Before:
 
 ```javascript
 <ScrollView>
@@ -9,7 +19,7 @@
 </ScrollView>
 ```
 
-
+After:
 ```javascript
 <ScrollProvider>
 	<Article />
@@ -19,8 +29,11 @@
 </ScrollProvider>
 ```
 
-## install
-`npm install react-native-defer-renderer --save`
+The library provides two components:
+
+`<ScrollProvider />` will return a `<ScrollView />` to provide scroll position to the child `<ScrollReceiver />` component
+`<ScrollReceiver />` will receive scroll position and decide wheter to render a placeholder component or the wrapped component
+
 
 ## demo
 please check the example folder
