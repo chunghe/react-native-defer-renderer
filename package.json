@@ -10,7 +10,7 @@
 		"react-component",
 		"react-native",
 		"ios",
-		"android",
+		"android"
 	],
   "author": "chunghe",
   "license": "ISC",
