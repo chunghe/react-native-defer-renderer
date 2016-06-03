@@ -14,24 +14,40 @@ import {
 import {ScrollProvider, ScrollReceiver} from 'react-native-defer-renderer';
 
 class Comment extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comments: []
+    };
+  }
+
   componentDidMount() {
+    const url = 'https://cdn.rawgit.com/chunghe/0dc3f32aca1cb083f7d08a79476d4495/raw/4835ea999cfce94883d2bcbbbad6f80857514465/comment.js';
     console.log('fetching comment content');
+    fetch(url)
+      .then(rsp => rsp.json())
+      .then(json => {
+        this.setState({comments: json.comments});
+      });
   }
 
   render() {
-    console.log('Comment component rendered');
+    const { comments } = this.state;
     return (
       <View style={styles.comments}>
         <View>
           <Text style={{fontWeight: '600', fontSize: 26, marginBottom: 20}}>Comments</Text>
         </View>
-        <Text style={styles.comment}>first component</Text>
-        <Text style={styles.comment}>second component</Text>
-        <Text style={styles.comment}>thrid component</Text>
+        {
+          comments.map( (comment, i) =>
+            <Text key={i} style={styles.comment}>{comment}</Text>
+          )
+        }
       </View>
     )
   }
 }
+
 
 class Article extends Component {
   render() {
