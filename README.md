@@ -31,9 +31,14 @@ After:
 
 The library provides two components:
 
-`<ScrollProvider />` will return a `<ScrollView />` to provide scroll position to the child `<ScrollReceiver />` component
-`<ScrollReceiver />` will receive scroll position and decide wheter to render a placeholder component or the wrapped component
+`<ScrollProvider />` 
+  - will return a react-native `<ScrollView />` with all the props 
+  - main purpose is to provide scroll position to the child `<ScrollReceiver />` component
 
+`<ScrollReceiver />` 
+  - warp the component to be lazy rendered
+  - will receive scroll position from `<ScrollProvider /> as props
+  - when props update, it will decide to render the wrapped component if close enough.
 
 ## demo
 please check the example folder
