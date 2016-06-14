@@ -50,7 +50,10 @@ $ `react-native run-ios` or  `react-native run-android`
 ## demo
 
 ios
+
 <img width="433" height="847" src="https://raw.githubusercontent.com/chunghe/react-native-defer-renderer/master/example/example-ios.gif" />
 
-androidw
+
+android
+
 <img width="422" height="784" src="https://raw.githubusercontent.com/chunghe/react-native-defer-renderer/master/example/example-android.gif" />
