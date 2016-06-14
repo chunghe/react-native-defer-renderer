@@ -12,31 +12,39 @@ class ScrollReceiver extends React.Component {
     this.distanceToTop = Infinity;
     this.windowHeight = Dimensions.get('window').height;
     this.state = {
-      rendered: false
+      shouldRender: false
     };
   }
 
   componentWillReceiveProps(nextProps) {
     const { contentOffset, threshold } = nextProps;
-    if (contentOffset.y + threshold > this.distanceToTop - this.windowHeight) {
-      this.setState({ rendered: true });
-    }
+    this.check(nextProps);
   }
 
   shouldComponentUpdate() {
-    return !this.state.rendered;
+    return !this.state.shouldRender;
   }
 
   handleLayout = (e) => {
     const distanceToTop = e.nativeEvent.layout.y;
     this.distanceToTop = distanceToTop;
+
+    // check for the initial load
+    this.check(this.props);
+  }
+
+  check(props) {
+    const { contentOffset, threshold } = props;
+    if (contentOffset.y + threshold > this.distanceToTop - this.windowHeight) {
+      this.setState({ shouldRender: true });
+    }
   }
 
   render() {
-    if (this.state.rendered) {
+    if (this.state.shouldRender) {
       return this.props.children;
     }
-    return <View onLayout={this.handleLayout} />;
+    return <View ref="view" onLayout={this.handleLayout} />;
   }
 }
 
