@@ -30,6 +30,10 @@ class Comment extends Component {
       });
   }
 
+  componentDidUpdate() {
+    console.log('comment rendered.');
+  }
+
   render() {
     const { comments } = this.state;
     return (
