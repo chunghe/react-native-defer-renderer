@@ -43,6 +43,10 @@ The library provides two components:
 ## example
 please check the example folder
 
+$ `cd example`
+$ `npm install`
+$ `react-native run-ios` or  `react-native run-android`
+
 ## demo
 
 ios
