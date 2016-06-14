@@ -40,7 +40,13 @@ The library provides two components:
   - will receive scroll position from `<ScrollProvider />` as props
   - when props update, it will decide to render the wrapped component if close enough.
 
-## demo
+## example
 please check the example folder
 
-<img width="433" height="847" src="https://raw.githubusercontent.com/chunghe/react-native-defer-renderer/master/example/example.gif" />
+## demo
+
+ios
+<img width="433" height="847" src="https://raw.githubusercontent.com/chunghe/react-native-defer-renderer/master/example/example-ios.gif" />
+
+androidw
+<img width="422" height="784" src="https://raw.githubusercontent.com/chunghe/react-native-defer-renderer/master/example/example-android.gif" />
